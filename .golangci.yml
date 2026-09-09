@@ -1,0 +1,28 @@
+# .golangci.yml — format v2
+version: "2"
+
+run:
+  timeout: 3m
+
+linters:
+  default: none
+  enable:
+    - govet
+    - staticcheck
+    - errcheck
+    - gosec
+    - ineffassign
+    - unused
+    - misspell
+    - bodyclose
+    - durationcheck
+    - unconvert
+
+issues:
+  exclude-rules:
+    - path: _test\.go
+      linters:
+        - gosec
+        - errcheck
+  max-issues-per-linter: 50
+  max-same-issues: 3
